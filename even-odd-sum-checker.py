@@ -1,39 +1,23 @@
 def process_even_numbers(numbers):
-    even_numbers = []
-    even_sum = 0
-    for num in numbers:
-        if num % 2 == 0:
-            even_numbers.append(num)
-            even_sum += num
+    even_numbers = [num for num in numbers if num % 2 == 0]
+    even_sum = sum(even_numbers)
     print("Even numbers:", even_numbers)
     print("Sum of even numbers:", even_sum)
 
+def process_odd_numbers(numbers):
+    odd_numbers = [num for num in numbers if num % 2 != 0]
+    odd_sum = sum(odd_numbers)
+    print("Odd numbers:", odd_numbers)
+    print("Sum of odd numbers:", odd_sum)
+    return odd_numbers, odd_sum
+
 last_num = int(input("Enter the last number (10th number): "))
-numbers = []
+numbers = list(range(last_num - 9, last_num + 1))
 
-for i in range(last_num - 9, last_num + 1):
-    numbers.append(i)
-
-even_numbers = []
-odd_numbers = []
-
-for num in numbers:
-    if num % 2!= 0:
-        odd_numbers.append(num)
-
-total_sum = 0
-for num in numbers:
-    total_sum += num
-
-
-
-odd_sum = 0
-for num in odd_numbers:
-    odd_sum += num
+total_sum = sum(numbers)
 
 print("Numbers:", numbers)
 print("Sum of all numbers:", total_sum)
-print("Even numbers:", even_numbers)
+
 process_even_numbers(numbers)
-print("Odd numbers:", odd_numbers)
-print("Sum of odd numbers:", odd_sum)
+odd_numbers, odd_sum = process_odd_numbers(numbers)
